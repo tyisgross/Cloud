@@ -7,7 +7,7 @@ module "infrastructure" {
 }
 
 module "eks" {
-  source = "./modules/eks"
+  source = "./modules/AWSEKS"
 
   vpc_id     = module.infrastructure.vpc_id
   subnet_ids = module.infrastructure.private_subnets
