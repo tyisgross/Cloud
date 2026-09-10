@@ -1,0 +1,17 @@
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: default
+spec:
+  amiSelectorTerms:
+    - alias: AL2023_x86_64_STANDARD
+
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: lab-cluster
+
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: lab-cluster
+
+  role: KarpenterNodeRole

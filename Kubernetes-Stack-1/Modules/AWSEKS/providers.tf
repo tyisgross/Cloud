@@ -13,4 +13,9 @@ required_providers {
       source  = "hashicorp/helm"
       version = "~> 3.2"
     }
+
+    kubectl = {
+      source = "hashicorp-oss/kubectl"
+      version = "~> 0.1.13"
+    }
   }
