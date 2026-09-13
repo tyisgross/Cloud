@@ -3,18 +3,18 @@ provider "aws" {
 }
 
 module "infrastructure" {
-  source = "./modules/infrastructure"
+  source = "./Modules/Infrastructure"
 }
 
 module "eks" {
-  source = "./modules/AWSEKS"
+  source = "./Modules/AWSEKS"
 
   vpc_id     = module.infrastructure.vpc_id
   subnet_ids = module.infrastructure.private_subnets
 }
 
 module "kubernetes" {
-  source = "./modules/kubernetes"
-  
+  source = "./Modules/Kubernetes"
+
 
 }
