@@ -2,7 +2,7 @@ module "karpenter" {
   source  = "terraform-aws-modules/eks/aws//modules/karpenter"
   version = "~> 20.0"
 
-  cluster_name = module.eks.lab-cluster
+  cluster_name = module.eks.cluster_name
 
   # Attach IAM policies needed for node bootstrapping
   node_iam_role_additional_policies = {
@@ -23,7 +23,7 @@ resource "helm_release" "karpenter" {
   set = [
     {
       name  = "settings.clusterName"
-      value = module.eks.lab-cluster
+      value = module.eks.cluster_name
     },
     {
       name  = "settings.interruptionQueue"
@@ -37,9 +37,9 @@ resource "helm_release" "karpenter" {
 }
 
 resource "kubectl_manifest" "karpenter_node_pool" {
-  yaml_body = file("$AWSEKS/manifests/nodepool.yaml")
+  yaml_body = file("$Kubernetes/nodepool.yaml")
 }
 
 resource "kubectl_manifest" "karpenter_node_class" {
-  yaml_body = file("$AWSEKS/manifests/nodeclass.yaml")
+  yaml_body = file("$Kubernetes/nodeclass.yaml")
 }
