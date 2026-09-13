@@ -28,11 +28,3 @@ module "eks" {
     node_security_group_additional_rules = {}
     enable_cluster_creator_admin_permissions = true
   }
-
-
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
-
-  
