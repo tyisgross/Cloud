@@ -9,10 +9,10 @@ module "eks" {
 
   name               = "lab-cluster"
   kubernetes_version = "1.33"
-  }
-
+  
   vpc_id                   = var.vpc_id
   subnet_ids               = var.subnet_ids
+  }
 
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
