@@ -10,7 +10,7 @@ output "private_subnets" {
 }
 
 output "vpc_cider" {
-  value = aws_vpc,network.cidr_block
+  value = aws_vpc_network.cidr_block
 }
 
 output "internet_gateway_id" {

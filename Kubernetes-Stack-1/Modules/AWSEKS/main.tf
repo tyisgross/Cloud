@@ -12,7 +12,7 @@ module "eks" {
   
   vpc_id                   = var.vpc_id
   subnet_ids               = var.subnet_ids
-  }
+  
 
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
@@ -28,3 +28,4 @@ module "eks" {
     node_security_group_additional_rules = {}
     enable_cluster_creator_admin_permissions = true
   }
+}
