@@ -37,9 +37,9 @@ resource "helm_release" "karpenter" {
 }
 
 resource "kubectl_manifest" "karpenter_node_pool" {
-  yaml_body = file("${path.module}/manifests/nodepool.yaml")
+  yaml_body = file("$AWSEKS/manifests/nodepool.yaml")
 }
 
 resource "kubectl_manifest" "karpenter_node_class" {
-  yaml_body = file("${path.module}/manifests/nodeclass.yaml")
+  yaml_body = file("$AWSEKS/manifests/nodeclass.yaml")
 }
