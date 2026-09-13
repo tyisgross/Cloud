@@ -1,4 +1,4 @@
-terraform{
+terraform {
   required_providers {
       aws = {
         source  = "hashicorp/aws"
@@ -55,4 +55,5 @@ provider "kubectl" {
     args        = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
       }
     }
+  }
 }
