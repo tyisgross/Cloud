@@ -40,7 +40,7 @@ provider "kubectl" {
 # copied from the terraform/AWS documentation
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "21.24.2"
+  version = "21.25.0"
 
   name               = "lab-cluster"
   kubernetes_version = "1.33"
