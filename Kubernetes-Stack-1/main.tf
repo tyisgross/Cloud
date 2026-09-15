@@ -8,9 +8,9 @@ module "infrastructure" {
 
 module "eks" {
   source = "./Modules/AWSEKS"
-
+  control_plane_subnet_ids = module.infrastructure.private_subnets
   vpc_id     = module.infrastructure.vpc_id
-  subnet_ids = module.infrastructure.private_subnets
+  private_subnets = module.infrastructure.private_subnets
 }
 
 module "kubernetes" {
