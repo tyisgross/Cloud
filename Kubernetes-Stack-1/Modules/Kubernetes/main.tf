@@ -1,7 +1,16 @@
+terraform {
+  required_providers {
+    kubectl = {
+      source  = "alekc/kubectl"
+      version = "3.0.0-beta3"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-west-2"
 }
-      
+     
 provider "kubernetes" {
   host                   = module.eks.cluster_endpoint
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
